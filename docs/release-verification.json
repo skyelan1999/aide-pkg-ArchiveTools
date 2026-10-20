@@ -1,0 +1,69 @@
+{
+  "version": "1.0.0",
+  "zipBytes": 1932,
+  "zipSHA256": "78bf74c2291120fc0102419b3512ac7a61264dc5ed6f418f6f232462252b8eee",
+  "zipEqualsExistingMarket": true,
+  "runtimeSourceUnchanged": true,
+  "aideCommit": "113045ce4e9c67c204662f035b16ff75123ba412",
+  "hostEntry": {
+    "ok": true,
+    "name": "压缩文件"
+  },
+  "hostTools": [
+    {
+      "name": "archive_compress",
+      "executable": true
+    },
+    {
+      "name": "archive_extract",
+      "executable": true
+    }
+  ],
+  "standaloneHandlers": "PASS: both handlers return expected native executor requirement error",
+  "nativeRegression": {
+    "command": "go test -race ./internal/server -run '^(TestWorkspaceDownloadAndArchive|TestReferenceDownloadAndSafeExtraction|TestReadArchiveFilesRejectsPortablePathTraversal|TestReadArchiveFilesDeduplicatesNormalizedPaths|TestWorkspaceArchiveFormatsRoundTrip|TestTarExtractionRejectsTraversalAndLinks)$' -count=1 -json",
+    "status": "PASS",
+    "tests": [
+      {
+        "test": "TestWorkspaceDownloadAndArchive",
+        "result": "pass"
+      },
+      {
+        "test": "TestReferenceDownloadAndSafeExtraction",
+        "result": "pass"
+      },
+      {
+        "test": "TestReadArchiveFilesRejectsPortablePathTraversal",
+        "result": "pass"
+      },
+      {
+        "test": "TestReadArchiveFilesDeduplicatesNormalizedPaths",
+        "result": "pass"
+      },
+      {
+        "test": "TestWorkspaceArchiveFormatsRoundTrip",
+        "result": "pass"
+      },
+      {
+        "test": "TestTarExtractionRejectsTraversalAndLinks",
+        "result": "pass"
+      }
+    ],
+    "formats": [
+      "zip",
+      "tar",
+      "tar.gz",
+      "tar.bz2",
+      "tar.xz"
+    ]
+  },
+  "platforms": {
+    "linux": "PASS",
+    "windows": "NOT_RUN",
+    "macos": "NOT_RUN"
+  },
+  "realSSH": "NOT_RUN",
+  "ui": "Not applicable: distribution/docs only, no product UI change",
+  "runtimeDependencies": "Aide native archive executor; python3 stdlib bz2/lzma for BZ2 creation and XZ codec",
+  "rollback": "Revert market metadata; original immutable runtime ZIP unchanged, no user data/services replaced"
+}
